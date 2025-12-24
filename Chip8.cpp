@@ -87,6 +87,47 @@ void Chip8::cycle() {
                 registers[x] += nn;
             }
             break;
+        case 0xD000: //DXYN: Vẽ Sprite tại (Vx,Vy) cao N dòng
+        {
+            //1. Lấy tọa độ (X,Y) từ thanh ghi
+            uint8_t x = registers[(opcode & 0x0F00) >> 8];
+            uint8_t y = registers[(opcode & 0x00F0) >> 4];
+            uint8_t height = opcode & 0x000F; // Chiều cao N
+            uint8_t pixel;
+
+            //2.Reset cờ va chạm (VF) về 0 trước khi vẽ
+            registers[0xF] = 0;
+
+            //3. Vòng lặp qua từng dòng Y của Sprite
+            for(int yline = 0; yline < height; yline++) {
+                //Lấy byte dữ liệu hình ảnh từ bộ nhớ tai I + yline
+                pixel = memory [index + yline];
+
+                //4. Vòng lặp qua từng bit (X) của dòng đó (8 pixel)
+                for(int xline = 0; xline < 8; xline++){
+                    //Kiểm tra xem bit hiện tại của sprite có là 1 không
+                    //
+                    if((pixel &(0x80 >> xline)) != 0 ) {
+
+                        //TÍnh toán vị trí thực trên màn hình 
+                        //xử lý cuộn nếu vẽ quá lề
+                        int xCoord = (x + xline) % 64;
+                        int yCoord = (y + yline) % 32;
+                        int videoIndex = xCoord + (yCoord * 64);
+
+                        //5.Kiểm tra va chạm (XOR logic)
+                        // nếu pixel trên màn hình là 1 -> gặp 1 thành 0
+                        if(video[videoIndex] == 1) {
+                            registers[0xF] =1; // bật cờ VF
+                        }
+
+                        // thực hiện vẽ bằng phép XOR
+                        video[videoIndex]^= 1; 
+                    }
+                }
+            }
+        }
+        break;
 
             //....
 
