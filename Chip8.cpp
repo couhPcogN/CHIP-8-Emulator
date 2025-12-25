@@ -129,6 +129,56 @@ void Chip8::cycle() {
         }
         break;
 
+        case 0xE000:
+            switch (opcode & 0x00FF) {
+                case 0x009E: //Ex9E: skip next instruction if key VX is pressed
+                {
+                    uint8_t x = (opcode & 0x0F00) >> 8;
+                    uint8_t key = registers[x];
+                    if(keypad[key] != 0) {
+                        pc += 2; //bỏ qua lệnh tiếp theo
+                    }
+                }
+                break;
+
+                case 0x00A1: //ExA1 :Skip next instruction if key VX is NOT pressed
+                {
+                    uint8_t x= (opcode & 0x0F00) >> 8;
+                    uint8_t key = registers[x];
+                    if(keypad[key] == 0) {
+                        pc += 2; //bỏ qua lệnh kế tiếp
+                    }
+                }
+                break;
+            }
+            break;
+
+        case 0xF000:
+            switch(opcode & 0x00FF) {
+                //... Các lệnh timer(Fx07, Fx15, Fx18) ...
+
+                case 0x000A: //Fx0A: wait for key press
+                {
+                    uint8_t x= (opcode & 0x0F00) >> 8;
+                    bool keyPress = false;
+
+                    for(int i = 0; i< 16; ++i) {
+                        if(keypad[i] != 0) {
+                            registers[x] = i;
+                            keyPress = true;
+                        }
+                    }
+
+                    // Nếu chưa có phím nào được nhấn thì lui PC lại 2 bước
+                    // Điều này khiến CPU thực hiện lại chính lệnh này trong vòng lặp sau.
+                    // Tạo hiệu ứng "đứng hình" chờ đợi mà không làm treo chương trình
+                    if(!keyPress) {
+                        pc -= 2;
+                    }
+                }
+                break;
+            }
+            break;
             //....
 
             default:
