@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/Phuoc/C++/CHIP-8/build/_deps/sdl2-subbuild/CMakeFiles/sdl2-populate"
+		},
+		{
+			"file" : "D:/Phuoc/C++/CHIP-8/build/_deps/sdl2-subbuild/CMakeFiles/73860baba705fbf06e4b730e58f90025/sdl2-populate.rule"
+		},
+		{
+			"file" : "D:/Phuoc/C++/CHIP-8/build/_deps/sdl2-subbuild/CMakeFiles/f284d1544aff80d01a82865918b55b51/sdl2-populate-complete.rule"
+		},
+		{
+			"file" : "D:/Phuoc/C++/CHIP-8/build/_deps/sdl2-subbuild/CMakeFiles/ba18840a983fdacaed85329acb2c3bec/sdl2-populate-build.rule"
+		},
+		{
+			"file" : "D:/Phuoc/C++/CHIP-8/build/_deps/sdl2-subbuild/CMakeFiles/ba18840a983fdacaed85329acb2c3bec/sdl2-populate-configure.rule"
+		},
+		{
+			"file" : "D:/Phuoc/C++/CHIP-8/build/_deps/sdl2-subbuild/CMakeFiles/ba18840a983fdacaed85329acb2c3bec/sdl2-populate-download.rule"
+		},
+		{
+			"file" : "D:/Phuoc/C++/CHIP-8/build/_deps/sdl2-subbuild/CMakeFiles/ba18840a983fdacaed85329acb2c3bec/sdl2-populate-install.rule"
+		},
+		{
+			"file" : "D:/Phuoc/C++/CHIP-8/build/_deps/sdl2-subbuild/CMakeFiles/ba18840a983fdacaed85329acb2c3bec/sdl2-populate-mkdir.rule"
+		},
+		{
+			"file" : "D:/Phuoc/C++/CHIP-8/build/_deps/sdl2-subbuild/CMakeFiles/ba18840a983fdacaed85329acb2c3bec/sdl2-populate-patch.rule"
+		},
+		{
+			"file" : "D:/Phuoc/C++/CHIP-8/build/_deps/sdl2-subbuild/CMakeFiles/ba18840a983fdacaed85329acb2c3bec/sdl2-populate-test.rule"
+		},
+		{
+			"file" : "D:/Phuoc/C++/CHIP-8/build/_deps/sdl2-subbuild/CMakeFiles/ba18840a983fdacaed85329acb2c3bec/sdl2-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"sdl2-populate"
+		],
+		"name" : "sdl2-populate"
+	}
+}

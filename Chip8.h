@@ -17,7 +17,7 @@ class Chip8{
     uint8_t registers[16];
 
     //2. Bộ nhớ : 4KB (4096 bytes)
-    uint16_t memory[4096];
+    uint8_t memory[4096];
 
     //3. Index register (I) : Trỏ địa chỉ bộ nhớ (Cần 16 bit vì RAM > 255)
     uint16_t index;
