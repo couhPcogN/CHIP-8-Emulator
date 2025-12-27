@@ -1,3 +1,0 @@
-D:/Phuoc/C++/CHIP-8/build/_deps/sdl2-subbuild/CMakeFiles/sdl2-populate.dir
-D:/Phuoc/C++/CHIP-8/build/_deps/sdl2-subbuild/CMakeFiles/ALL_BUILD.dir
-D:/Phuoc/C++/CHIP-8/build/_deps/sdl2-subbuild/CMakeFiles/ZERO_CHECK.dir

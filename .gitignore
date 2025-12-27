@@ -1,0 +1,9 @@
+# Build output
+/build/
+
+# Visual Studio / MSVC
+*.obj
+*.pdb
+*.ilk
+*.tlog
+*.exe

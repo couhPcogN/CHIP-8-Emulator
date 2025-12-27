@@ -1,8 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"D:/Phuoc/C++/CHIP-8/build/cmake_install.cmake",
-		"D:/Phuoc/C++/CHIP-8/build/_deps/sdl2-build/cmake_install.cmake"
-	],
-	"Parallel" : false
-}
