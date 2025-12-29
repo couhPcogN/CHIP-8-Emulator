@@ -14,5 +14,23 @@ Platform::Platform(char const* title, int windowWidth, int windowHeight, int tex
     texture = SDL_CreateTexture(
         renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_STREAMING, textureWidth, textureHeight 
     );
+}
 
+Platform::~Platform() {
+    SDL_DestroyTexture(texture);
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+}
+
+void Platform::Update(void const* buffer, int pitch) {
+    // Copy dữ liệu từ video[] của Chip8 vào Texture của SDL
+    SDL_UpdateTexture(texture, nullptr, buffer, pitch);
+
+    //Xóa màn hình cũ 
+    SDL_RenderClear(renderer);
+    //copy texture lên màn hình
+    SDL_RenderCopy(renderer, texture, nullptr, nullptr);
+    //Hiển thị nội dung
+    SDL_RenderPresent(renderer);
 }
